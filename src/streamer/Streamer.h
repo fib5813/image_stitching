@@ -2,7 +2,7 @@
 #define __STREAMER_H__
 
 #include <string>
-#include <stack>
+#include <list>
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
@@ -15,15 +15,16 @@ public:
     Streamer(string path = ""){
         path_ = path;
         list_files();
+        counter_ = files_.begin();
     }
     void set_path(string path);
     shared_ptr<Mat> get_image();
-    // void preprocess(image& in, &image out);
     
 private:
     void list_files();
     string path_;
-    stack<string> files_;
+    list<string> files_;
+    list<string>::iterator counter_;
 };
 
 #endif

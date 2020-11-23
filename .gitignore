@@ -2,4 +2,4 @@ build/
 *.jpg
 *.png
 /images
-
+.vscode/

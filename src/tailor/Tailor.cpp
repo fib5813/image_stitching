@@ -1,7 +1,9 @@
 #include "Tailor.h"
+#include "Image.h"
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
+
 
 using namespace cv;
 using namespace std;
@@ -16,4 +18,20 @@ void Tailor::add(shared_ptr<Mat> img, bool f_display){
     if(f_display){
         display();
     }
+}
+
+void Tailor::get_keypoints(string feature_type){
+
+    Image img(feature_type, curr_img_);
+    input_images.push_back(img);
+}
+
+
+
+void Tailor::stitch(){
+
+    // find matches in keypoints
+    // identify seams and merge image
+    
+
 }

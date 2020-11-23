@@ -18,9 +18,9 @@ int main(int argc, char **argv){
     for all images in folder:
         load image
         find features
-        if not first image, find corresponences with previous image.
-        adjust image as required
-        stitch image and store
+    find corresponences
+    adjust image as required
+    stitch image and store
     */
     if(argc < 2 || argc > 3){
         cout << "Usage: ./demo <absolute_image_path> " << endl; 
@@ -35,10 +35,12 @@ int main(int argc, char **argv){
     auto img = streamer.get_image();
     
     while(img != nullptr){
+        
         tailor.add(img, true);
+        tailor.get_keypoints();
         img = streamer.get_image();
-
     }
+    tailor.stitch();
    
 
     return 0;
