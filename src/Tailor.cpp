@@ -23,7 +23,7 @@ void Tailor::add(shared_ptr<Mat> img, bool f_display){
 void Tailor::get_keypoints(string path){
 
     Image img(path);
-    img.process(curr_img_);
+    img.process(curr_img_, true);
     input_images.push_back(img);
 }
 

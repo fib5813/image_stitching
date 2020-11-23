@@ -22,7 +22,7 @@ class kp_orb : public kp_base{
 
     }
     void set_tuning_params(){
-        std::ifstream i("/home/bubbles/image_stitching/src/config.json");
+        std::ifstream i("/home/bubbles/image_stitching/include/config.json");
         json j;
         i >> j;
 

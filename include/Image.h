@@ -35,7 +35,7 @@ class Image{
         desc_class = &orb_desc;
 
         desc_class->set_config();
-        descriptors_ = desc_class->get_descriptors(img, keypoints_);
+        // descriptors_ = desc_class->get_descriptors(img, keypoints_);
 
         if(f_display){
             display(img);
@@ -45,7 +45,9 @@ class Image{
 
     void display(cv::Mat &img){
         cv::Mat img_keypoints;
-        drawKeypoints(img, keypoints_, img_keypoints );
+        drawKeypoints(img, keypoints_, img_keypoints);
+        imshow("Keypoints", img_keypoints);
+        cv::waitKey();
     }
 
     private:
