@@ -13,7 +13,6 @@ using namespace std;
 
 
 int main(int argc, char **argv){
-    // std::cout << "And so it begins..." << std::endl;
     /*
     for all images in folder:
         load image
@@ -22,14 +21,13 @@ int main(int argc, char **argv){
     adjust image as required
     stitch image and store
     */
+    
     if(argc < 2 || argc > 3){
         cout << "Usage: ./demo <absolute_image_path> " << endl; 
         return 0;
     }
     string path = argv[1];
-    string ext = ".jpg";
-    // cout << "num args = " << argc << " argv = " << path << endl;   
-
+    
     Streamer streamer(path);
     Tailor tailor;
     auto img = streamer.get_image();
