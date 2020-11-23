@@ -20,9 +20,10 @@ void Tailor::add(shared_ptr<Mat> img, bool f_display){
     }
 }
 
-void Tailor::get_keypoints(string feature_type){
+void Tailor::get_keypoints(string path){
 
-    Image img(feature_type, curr_img_);
+    Image img(path);
+    img.process(curr_img_);
     input_images.push_back(img);
 }
 

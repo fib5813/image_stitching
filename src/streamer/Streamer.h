@@ -3,6 +3,7 @@
 
 #include <string>
 #include <stack>
+#include <string>
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
@@ -18,7 +19,7 @@ public:
         
     }
     void set_path(string path);
-    shared_ptr<Mat> get_image();
+    shared_ptr<Mat> get_image(std::string& path);
     
 private:
     void list_files();

@@ -1,5 +1,6 @@
 #include <experimental/filesystem>
 #include <iostream>
+#include <string>
 #include <memory>
 #include "Streamer.h"
 #include <opencv2/core.hpp>
@@ -22,7 +23,7 @@ void Streamer::list_files(){
     }
 }
 
-shared_ptr<Mat> Streamer::get_image(){
+shared_ptr<Mat> Streamer::get_image(string& path){
     if(files_.empty()) return nullptr;
 
     shared_ptr<Mat> out = make_shared<Mat>(imread(files_.top(), IMREAD_COLOR)); 
@@ -32,6 +33,7 @@ shared_ptr<Mat> Streamer::get_image(){
         std::cout << "Could not read the image: " << files_.top() << std::endl;
         return nullptr;
     }
+    path = files_.top();
     files_.pop();
     return out;
 

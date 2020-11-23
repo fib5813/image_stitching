@@ -1,5 +1,5 @@
-#ifndef __ORB_H__
-#define __ORB_H__
+#ifndef __KP_ORB_H__
+#define __KP_ORB_H__
 
 #include "json.hpp"
 #include "kp_base.h"
@@ -16,13 +16,13 @@
 
 using json = nlohmann::json;
 
-class orb : public kp_base{
+class kp_orb : public kp_base{
     void preprocess(){
         // convert to grayscale if reqd
 
     }
     void set_tuning_params(){
-        std::ifstream i("/home/bubbles/image_stitching/src/feature_selector/config.json");
+        std::ifstream i("/home/bubbles/image_stitching/src/config.json");
         json j;
         i >> j;
 
@@ -35,9 +35,13 @@ class orb : public kp_base{
         
     }
     std::vector<cv::KeyPoint> get_keypoints(cv::Mat& img){
+        std::vector<cv::KeyPoint> kp_out;
+        cv::Ptr<cv::ORB> orb_detector= cv::ORB::create();
+        orb_detector->detect(img, kp_out);
+
         // imshow("getting keypoints", img);
         // waitKey(0); // Wait for a keystroke in the window
-        return std::vector<cv::KeyPoint> {};
+        return kp_out;
     }
 
 

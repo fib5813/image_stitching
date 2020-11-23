@@ -13,6 +13,7 @@ include_directories(${OpenCV_INCLUDE_DIRS}
                     src/json_parser/
                     src/feature_selector/
                     src/image/
+                    src/descriptor_selector/
                     )
 
 #message("${PROJECT_INCLUDE_DIRS}")

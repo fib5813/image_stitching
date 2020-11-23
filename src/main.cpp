@@ -30,13 +30,14 @@ int main(int argc, char **argv){
     
     Streamer streamer(path);
     Tailor tailor;
-    auto img = streamer.get_image();
+    std::string img_path;
+    auto img = streamer.get_image(img_path);
     
     while(img != nullptr){
         
         tailor.add(img, true);
-        tailor.get_keypoints();
-        img = streamer.get_image();
+        tailor.get_keypoints(img_path);
+        img = streamer.get_image(img_path);
     }
     tailor.stitch();
    

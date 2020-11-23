@@ -4,6 +4,7 @@
 #include <iostream>
 #include <memory>
 #include <list>
+#include <string>
 #include "Image.h"
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
@@ -27,7 +28,7 @@ public:
     void undistort(); 
 
     // method to find keypoints in images, store the keypoints mapped to images as 
-    void get_keypoints(string feature_type = "ORB");  
+    void get_keypoints(std::string path);  
 
     //match best keypoints in the list of keypoints for different images, 
     void match_keypoints();
